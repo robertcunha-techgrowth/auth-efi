@@ -11,6 +11,10 @@ ARG GITHUB_TOKEN
 
 COPY .npmrc ./
 
+COPY *.p12 ./
+
+RUN ls -l
+
 # Install dependencies
 RUN npm ci
 
