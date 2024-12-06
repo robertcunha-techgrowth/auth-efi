@@ -11,8 +11,6 @@ ARG GITHUB_TOKEN
 
 COPY .npmrc ./
 
-COPY .env ./
-
 # Install dependencies
 RUN npm ci
 
@@ -31,10 +29,10 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 # Copy the build output from the builder stage to the Lambda task root
 COPY --from=builder /usr/src/app/dist/* ./
 
-COPY *.p12 ./
-
 # Copy the .env file to the Lambda task root
-COPY .env ./
+COPY .env .
+
+COPY *.p12 ./
 
 RUN ls -l
 
