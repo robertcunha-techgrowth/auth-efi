@@ -41,7 +41,7 @@ COPY .env ./
 
 COPY *.p12 ./
 
-RUN ls -l
+RUN ls -a
 
 # Set the CMD to your handler (could be index.handler or whatever your entry point is)
 CMD ["index.handler"]
