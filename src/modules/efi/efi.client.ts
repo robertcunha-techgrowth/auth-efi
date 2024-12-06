@@ -22,7 +22,7 @@ export class EfiClient {
 
 		const credenciais = {
 			client_id: process.env.EFI_CLIENT_ID,
-			client_secret: process.env.EFI_CLIENT_SECRET,
+			client_secret: process.env.EFI_SECRET_ID,
 		};
 
 		const data = JSON.stringify({ grant_type: "client_credentials" });
