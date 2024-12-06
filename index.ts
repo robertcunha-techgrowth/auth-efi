@@ -1,6 +1,5 @@
-import { ConfigModule } from "./src/core/infrastructure/config.module";
-
-ConfigModule.forRoot();
+import * as loadenv from "./load-env";
+console.log(loadenv);
 import { AppModule } from "./src/app.module";
 import { Handler } from "./src/core/presenter/handler";
 
