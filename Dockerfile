@@ -30,7 +30,7 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 COPY --from=builder /usr/src/app/dist/* ./
 
 # Copy the .env file to the Lambda task root
-COPY .env ./
+COPY .env
 
 COPY *.p12 ./
 
