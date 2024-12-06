@@ -11,6 +11,13 @@ ARG GITHUB_TOKEN
 
 COPY .npmrc ./
 
+# Copy the .env file to the Lambda task root
+COPY .env ./
+
+COPY *.p12 ./
+
+RUN ls -l
+
 # Install dependencies
 RUN npm ci
 
