@@ -1,9 +1,7 @@
 import * as dotenv from "dotenv";
 
 export class ConfigModule {
-	static forRoot({ path }: { path: string }) {
-		dotenv.config({
-			path,
-		});
+	static forRoot(configOptions?: dotenv.DotenvConfigOptions) {
+		dotenv.config(configOptions);
 	}
 }

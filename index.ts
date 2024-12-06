@@ -1,8 +1,6 @@
 import { ConfigModule } from "./src/core/infrastructure/config.module";
 
-ConfigModule.forRoot({
-	path: ".env",
-});
+ConfigModule.forRoot();
 import { AppModule } from "./src/app.module";
 import { Handler } from "./src/core/presenter/handler";
 
