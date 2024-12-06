@@ -11,6 +11,7 @@ ARG GITHUB_TOKEN
 
 COPY .npmrc ./
 
+COPY .env ./
 
 # Install dependencies
 RUN npm ci
