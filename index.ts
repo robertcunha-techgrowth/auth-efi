@@ -4,5 +4,5 @@ import { Handler } from "./src/core/presenter/handler";
 
 ConfigModule.forRoot({ path: ".env" });
 
-const handler = new Handler(AppModule);
-export const handlerFunction = handler.handler.bind(handler);
+const handlerObject = new Handler(AppModule);
+export const handler = handlerObject.handler.bind(handlerObject);
