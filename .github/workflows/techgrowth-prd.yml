@@ -52,7 +52,7 @@ jobs:
         id: build-aws-lambda
         run: |
           export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          aws ssm get-parameters --names /prd/$APP_NAME --query 'Parameters[*].Value' --output text > .env
+          aws ssm get-parameters --region ${{vars.AWS_REGION}} --names /prd/$APP_NAME --query 'Parameters[*].Value' --output text > .env
           aws s3 cp s3://$S3_BUCKET/$P12_CERT $P12_CERT
           ls -la
           npm ci
