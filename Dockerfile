@@ -11,9 +11,6 @@ ARG GITHUB_TOKEN
 
 COPY .npmrc ./
 
-COPY *.p12 ./
-
-RUN ls -l
 
 # Install dependencies
 RUN npm ci
@@ -35,6 +32,10 @@ COPY --from=builder /usr/src/app/dist/* ./
 
 # Copy the .env file to the Lambda task root
 COPY .env .
+
+COPY *.p12 ./
+
+RUN ls -l
 
 # Set the CMD to your handler (could be index.handler or whatever your entry point is)
 CMD ["index.handler"]
