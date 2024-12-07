@@ -1,5 +1,5 @@
 # Use the official AWS Lambda Node.js 18 base image as the builder stage
-FROM public.ecr.aws/lambda/nodejs:18 AS builder
+FROM public.ecr.aws/lambda/nodejs:20 AS builder
 
 # Set the working directory to /usr/src/app
 WORKDIR /usr/src/app
@@ -20,8 +20,8 @@ COPY . .
 # Build the application (if necessary)
 RUN npm run build:lambda
 
-# Use the official AWS Lambda Node.js 18 base image for the final stage
-FROM public.ecr.aws/lambda/nodejs:18
+# Use the official AWS Lambda Node.js 20 base image for the final stage
+FROM public.ecr.aws/lambda/nodejs:20
 
 # Set the working directory to Lambda task root
 WORKDIR ${LAMBDA_TASK_ROOT}
