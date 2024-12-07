@@ -9,7 +9,6 @@ import { EfiClient } from "./efi.client";
 export const EfiAxiosInstanceProvider = new FactoryProvider({
 	provide: "EfiAxiosInstance",
 	useFactory: () => {
-		console.log("url: " + process.env.EFI_API_URL);
 		return axios.create({
 			baseURL: process.env.EFI_API_URL,
 		});

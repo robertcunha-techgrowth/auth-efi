@@ -22,8 +22,6 @@ export class EfiClient {
 			process.env.EFI_CERTIFICATE_PATH as string
 		);
 
-		console.log(certificado);
-
 		const credenciais = {
 			client_id: process.env.EFI_CLIENT_ID,
 			client_secret: process.env.EFI_SECRET_ID,
