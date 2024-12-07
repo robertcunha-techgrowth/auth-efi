@@ -18,7 +18,9 @@ export class EfiClient {
 	) {}
 
 	async getToken() {
-		const certificado = fs.readFileSync("./techgrowth-labs-prd.p12");
+		const certificado = fs.readFileSync(
+			process.env.EFI_CERTIFICATE_PATH as string
+		);
 
 		const credenciais = {
 			client_id: process.env.EFI_CLIENT_ID,
