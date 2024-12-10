@@ -32,7 +32,7 @@ COPY --from=builder /usr/src/app/dist/* ./
 # Copy the .env file to the Lambda task root
 COPY .env .
 
-COPY *.p12 ./
+COPY *.p12 .
 
 RUN ls -a
 
