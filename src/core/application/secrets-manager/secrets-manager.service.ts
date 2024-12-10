@@ -1,6 +1,7 @@
 import {
 	SecretsManagerClient,
 	CreateSecretCommand,
+	UpdateSecretCommand,
 } from "@aws-sdk/client-secrets-manager"; // ES Modules import
 import { Inject, Injectable } from "@techgrowth-labs/dependency-injection";
 
@@ -19,13 +20,12 @@ export class SecretsManagerService {
 
 	async createToken(token: string): Promise<SecretCreateResponse> {
 		const input = {
-			Name: "BEARER_EFI",
-			Description: "Efi token",
+			SecretId: "BEARER_EFI",
+			Description: "EFI Token",
 			SecretString: token,
-			ForceOverwriteReplicaSecret: true,
 		};
 
-		const command = new CreateSecretCommand(input);
+		const command = new UpdateSecretCommand(input);
 		const response = await this.secretsManagerClient.send(command);
 		return response as SecretCreateResponse;
 	}

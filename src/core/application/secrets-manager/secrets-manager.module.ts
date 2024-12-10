@@ -9,7 +9,13 @@ import { SecretsManagerService } from "./secrets-manager.service";
 export const SecretsManagerClientProvider = new FactoryProvider({
 	provide: "SecretsManagerClient",
 	useFactory: () => {
-		return new SecretsManagerClient();
+		return new SecretsManagerClient({
+			region: process.env.AWS_REGION,
+			credentials: {
+				accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
+				secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+			},
+		});
 	},
 });
 
