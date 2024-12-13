@@ -1,5 +1,5 @@
 import https from "https";
-import { AxiosInstance } from "axios";
+import axios, { AxiosInstance } from "axios";
 import fs from "fs";
 import { Inject, Injectable } from "@techgrowth-labs/dependency-injection";
 
@@ -18,6 +18,8 @@ export class EfiClient {
 	) {}
 
 	async getToken() {
+		const responseGoogle = await axios.get("https://www.google.com");
+		console.log(responseGoogle);
 		const certificado = fs.readFileSync(
 			process.env.EFI_CERTIFICATE_PATH as string
 		);
