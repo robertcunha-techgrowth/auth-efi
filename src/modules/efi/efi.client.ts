@@ -18,8 +18,6 @@ export class EfiClient {
 	) {}
 
 	async getToken() {
-		const responseGoogle = await axios.get("https://www.google.com");
-		console.log(responseGoogle);
 		const certificado = fs.readFileSync(
 			process.env.EFI_CERTIFICATE_PATH as string
 		);
