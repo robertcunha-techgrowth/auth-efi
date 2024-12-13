@@ -24,16 +24,22 @@ export class EfiClient {
 			process.env.EFI_CERTIFICATE_PATH as string
 		);
 
+		console.log(certificado);
+
 		const credenciais = {
 			client_id: process.env.EFI_CLIENT_ID,
 			client_secret: process.env.EFI_SECRET_ID,
 		};
+
+		console.log(credenciais);
 
 		const data = JSON.stringify({ grant_type: "client_credentials" });
 		const data_credentials =
 			credenciais.client_id + ":" + credenciais.client_secret;
 
 		const auth = Buffer.from(data_credentials).toString("base64");
+
+		console.log(auth);
 
 		const agent = new https.Agent({
 			pfx: certificado,
