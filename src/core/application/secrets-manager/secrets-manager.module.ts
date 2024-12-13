@@ -5,10 +5,12 @@ import {
 	Module,
 } from "@techgrowth-labs/dependency-injection";
 import { SecretsManagerService } from "./secrets-manager.service";
+import * as dotenv from "dotenv";
 
 export const SecretsManagerClientProvider = new FactoryProvider({
 	provide: "SecretsManagerClient",
 	useFactory: () => {
+		dotenv.config();
 		return new SecretsManagerClient({
 			region: process.env.AWS_REGION,
 			credentials: {
